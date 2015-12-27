@@ -11,11 +11,11 @@ ADD supervisord.conf /etc/supervisor/conf.d/
 RUN apt-get install -y nginx
 
 ADD nginx/nginx.conf /etc/nginx/
-ADD nginx/app.conf /etc/nginx/sites-available/
+ADD nginx/api.conf /etc/nginx/sites-available/
 ADD nginx/upstream.conf /etc/nginx/conf.d/upstream.conf
 ADD nginx/fastcgi_params /etc/nginx/
 
-RUN ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app
+RUN ln -s /etc/nginx/sites-available/api.conf /etc/nginx/sites-enabled/api
 RUN rm /etc/nginx/sites-enabled/default
 
 ########
@@ -25,9 +25,9 @@ RUN php5enmod mcrypt
 
 RUN rm /etc/php5/fpm/pool.d/www.conf
 
-ADD fpm/app.ini /etc/php5/fpm/conf.d/
-ADD fpm/app.ini /etc/php5/cli/conf.d/
-ADD fpm/app.pool.conf /etc/php5/fpm/pool.d/
+ADD fpm/api.ini /etc/php5/fpm/conf.d/
+ADD fpm/api.ini /etc/php5/cli/conf.d/
+ADD fpm/api.pool.conf /etc/php5/fpm/pool.d/
 
 EXPOSE 80
 

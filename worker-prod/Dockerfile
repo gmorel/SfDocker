@@ -4,7 +4,7 @@ MAINTAINER Markus Weiland <mw@graph-ix.net>
 
 ########
 
-RUN mkdir -p /var/www/app
-ADD code.tar.gz /var/www/app
+RUN mkdir -p /var/www/api
+ADD code.tar.gz /var/www/api
 
-RUN chown -R www-data:www-data /var/www/app/app/cache /var/www/app/app/logs
+RUN chown -R www-data:www-data /var/www/api/app/cache /var/www/api/app/logs

@@ -1,22 +1,22 @@
 db:
     image: mysql
     ports:
-    - "3306:3306"
+        - "3306:3306"
     environment:
         MYSQL_ROOT_PASSWORD: symfonyrootpass
-        MYSQL_DATABASE: symfony
-        MYSQL_USER: symfony
-        MYSQL_PASSWORD: symfonypass
+        MYSQL_DATABASE: symfony_demo_docker
+        MYSQL_USER: symfony_demo_docker_user
+        MYSQL_PASSWORD: symfony_demo_docker_pass
 worker:
     image: symfony/worker-dev
     ports:
-    - "8080:80"
+        - "8080:80"
     environment:
         XDEBUG_HOST: 192.168.1.194
         XDEBUG_PORT: 9000
         XDEBUG_REMOTE_MODE: req
     links:
-    - db
+        - db
     volumes:
-    - "var/nginx/:/var/log/nginx"
-    - ../mySymfonyProject:/var/www/app
+        - /var/nginx/:/var/log/nginx
+        - /home/gmorel/dev/www/symfony-demo-docker:/var/www/api
