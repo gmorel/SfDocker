@@ -17,6 +17,11 @@ worker:
         XDEBUG_REMOTE_MODE: req
     links:
         - db
+        - mailcatcher:mailcatcher_smtp
     volumes:
         - /var/nginx/:/var/log/nginx
         - /home/gmorel/dev/www/symfony-demo-docker:/var/www/api
+
+# http://slides.com/jeremyderusse/docker-dev#/7/2
+mailcatcher:
+  image: jderusse/mailcatcher
