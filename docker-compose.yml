@@ -25,3 +25,13 @@ worker:
 # http://slides.com/jeremyderusse/docker-dev#/7/2
 mailcatcher:
   image: jderusse/mailcatcher
+
+elk:
+    image: willdurand/elk
+    ports:
+        - 81:80
+    volumes:
+        - ./worker-base/logstash:/etc/logstash
+        - ./worker-base/logstash/patterns:/opt/logstash/patterns
+    volumes_from:
+        - worker

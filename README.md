@@ -76,7 +76,7 @@ that all environment variables are available for Symfony.
 
 Simply execute the following from the path of this repository:
 
-    docker-compose run worker /var/www/app/app/console
+    docker-compose run worker /var/www/api/app/console
 
 Building SfDocker images
 ------------------------
@@ -93,6 +93,13 @@ Then simply launch the development server with
 To build a production image, run the following command in the repository's top folder:
 
     ./worker-prod/build-release.sh
+    
+Ready to test SF2 project
+-------------------------
+
+Source: https://github.com/gmorel/symfony-demo-docker
+Url Symfony2: http://0.0.0.0:8080
+Url Kibana: http://0.0.0.0:81
 
 Authors
 -------
